@@ -2,29 +2,21 @@ package com.bankspring.factory;
 
 public class Command implements Orderable{
 	public final int PAGESIZE = 10;
-	private int pageNo, start, end;
-	private String directory, action, keyword, keyField, view;
-	
-	
-	public Command(
-			String directory, 
-			String action, 
-			String pageNo, 
-			String keyField,
-			String keyword) {
-		this.directory = directory;
-		this.action = action;
-		this.pageNo = Integer.parseInt(pageNo);
-		this.keyField = keyField;
-		this.keyword = keyword;
-		this.start = (Integer.parseInt(pageNo)-1)*PAGESIZE+1;
-		this.end = Integer.parseInt(pageNo)*PAGESIZE;
-		this.view = directory+"/"+action;
-	}
+	int pageNo, start, end;
+	String command, searchKey, searchVal; 
 	
 	public int getPageNo() {
 		return pageNo;
 	}
+
+
+
+	public void setPageNo(String pageNo) {
+		this.pageNo = Integer.parseInt(pageNo);
+		this.start = (Integer.parseInt(pageNo)-1)*PAGESIZE+1;
+		this.end = Integer.parseInt(pageNo)*PAGESIZE;
+	}
+
 
 
 	public int getStart() {
@@ -32,69 +24,81 @@ public class Command implements Orderable{
 	}
 
 
-	public int getEnd() {
-		return end;
-	}
-
-
-	public String getKeyword() {
-		return keyword;
-	}
-
-
-	public String getKeyField() {
-		return keyField;
-	}
-
-
-	public String getDirectory() {
-		return directory;
-	}
-
-
-	public String getAction() {
-		return action;
-	}
-
-
-	public String getView() {
-		return view;
-	}
-
-	public void setPageNo(int pageNo) {
-		this.pageNo = pageNo;
-	}
 
 	public void setStart(int start) {
 		this.start = start;
 	}
 
+
+
+	public int getEnd() {
+		return end;
+	}
+
+
+
 	public void setEnd(int end) {
 		this.end = end;
 	}
 
-	public void setDirectory(String directory) {
-		this.directory = directory;
+
+
+	public String getCommand() {
+		return command;
 	}
 
-	public void setAction(String action) {
-		this.action = action;
+
+
+	public void setCommand(String command) {
+		this.command = command;
 	}
 
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
+
+
+	public String getSearchKey() {
+		return searchKey;
 	}
 
-	public void setKeyField(String keyField) {
-		this.keyField = keyField;
+
+
+	public void setSearchKey(String searchKey) {
+		this.searchKey = searchKey;
 	}
 
-	public void setView(String view) {
-		this.view = view;
+
+
+	public String getSearchVal() {
+		return searchVal;
 	}
+
+
+
+	public void setSearchVal(String searchVal) {
+		this.searchVal = searchVal;
+	}
+
+
 
 	@Override
 	public void execute() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void execute(String pageNo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void execute(String searchKey, String searchVal) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void execute(String pageNo, String searchKey, String searchVal) {
 		// TODO Auto-generated method stub
 		
 	}

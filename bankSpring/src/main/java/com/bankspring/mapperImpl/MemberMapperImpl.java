@@ -11,14 +11,14 @@ import com.bankspring.factory.Command;
 import com.bankspring.mapper.MemberMapper;
 @Repository
 public class MemberMapperImpl implements MemberMapper{
-	
+	String namespace = "com.bankspring.mapper.MemberMapper.";
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
 	@Override
 	public int insert(MemberDto member) {
 		return sqlSession.insert(
-				"com.bankspring.mapper.MemberMapper.insert",member);
+				namespace+"insert",member);
 	}
 
 	@Override
@@ -34,13 +34,13 @@ public class MemberMapperImpl implements MemberMapper{
 	}
 
 	@Override
-	public int count(Command command) {
+	public int countAll(Command command) {
 		return sqlSession.selectOne(
-				"com.bankspring.mapper.MemberMapper.count",command);
+				"com.bankspring.mapper.MemberMapper.countAll",command);
 	}
 
 	@Override
-	public int searchCount(Command command) {
+	public int countSome(Command command) {
 		return sqlSession.selectOne(
 				"com.bankspring.mapper.MemberMapper.searchCount",command);
 	}
@@ -60,8 +60,9 @@ public class MemberMapperImpl implements MemberMapper{
 	@Override
 	public List<MemberDto> list(Command command) {
 		return sqlSession.selectList(
-				"com.bankspring.mapper.MemberMapper.list",command);
+				namespace+"list",command);
 	}
-	
+
+
 
 }

@@ -4,11 +4,11 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<bean id="user" class="com.bankspring.demo.domain.UserDto">
+<!-- 	<bean id="user" class="com.bankspring.demo.domain.UserDto">
 		<property name="name" value="홍길동"></property>	
 	</bean>	
 	<bean id="userService" class="com.bankspring.demo.serviceImpl.UserServiceImpl">
 		<property name="user" ref="user">
 		</property>
-	</bean>
+	</bean> -->
 </beans>

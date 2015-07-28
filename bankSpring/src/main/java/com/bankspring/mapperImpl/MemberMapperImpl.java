@@ -24,43 +24,49 @@ public class MemberMapperImpl implements MemberMapper{
 	@Override
 	public int update(MemberDto member) {
 		return sqlSession.update(
-				"com.bankspring.mapper.MemberMapper.update",member);
+				namespace+"update",member);
 	}
 
 	@Override
 	public int delete(MemberDto member) {
 		return sqlSession.delete(
-				"com.bankspring.mapper.MemberMapper.delete",member);
+				namespace+"delete",member);
 	}
 
 	@Override
-	public int countAll(Command command) {
+	public int countAll() {
 		return sqlSession.selectOne(
-				"com.bankspring.mapper.MemberMapper.countAll",command);
+				namespace+"countAll");
 	}
 
 	@Override
 	public int countSome(Command command) {
 		return sqlSession.selectOne(
-				"com.bankspring.mapper.MemberMapper.searchCount",command);
+				namespace+"countSome",command);
 	}
 
 	@Override
 	public MemberDto getElementById(Command command) {
 		return sqlSession.selectOne(
-				"com.bankspring.mapper.MemberMapper.getElementById",command);
+				namespace+"getElementById",command);
 	}
 
 	@Override
 	public List<MemberDto> getElementsByName(Command command) {
 		return sqlSession.selectList(
-				"com.bankspring.mapper.MemberMapper.getElementsByName",command);
+				namespace+"getElementsByName",command);
 	}
 
 	@Override
 	public List<MemberDto> list(Command command) {
 		return sqlSession.selectList(
 				namespace+"list",command);
+	}
+
+	@Override
+	public MemberDto login(Command command) {
+		return sqlSession.selectOne(
+				namespace+"login",command);
 	}
 
 

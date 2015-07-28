@@ -29,10 +29,30 @@ public class AdminController {
 		switch (command) {
 		case "list":
 			mav.addObject("memberList", memberService.memberList(CommandFactory.list(pageNo)));
-			mav.addObject("count", memberService.memberCountAll(CommandFactory.count()));
+			mav.addObject("count", memberService.memberCountAll());
 			mav.setViewName("admin/main");
 			break;
+		case "search":
+			switch (searchKey) {
+			case "list":
+				mav.addObject("memberList", memberService.memberList(CommandFactory.list(pageNo)));
+				mav.addObject("count", memberService.memberCountAll());
+				mav.setViewName("admin/main");
+				break;
+			case "userid":
+				mav.addObject("member", memberService.memberDetail(CommandFactory.search(searchKey, searchVal)));
+				mav.setViewName("admin/search");
+				break;
+			case "name":
+				mav.addObject("memberList", memberService.searchByKeyword(CommandFactory.search(pageNo,searchKey, searchVal)));
+				mav.addObject("count", memberService.memberCountSome(CommandFactory.countSome(searchKey, searchVal)));
+				mav.setViewName("admin/main");
+				break;
 
+			default:
+				break;
+			}
+			break;
 		default:
 			break;
 		}
